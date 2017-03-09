@@ -1,0 +1,137 @@
+% Title:
+% 	ARTICLE PLUS
+% ----------------------
+% Description:
+% 	A template for scientific reports/articles.
+%	Most necessary packages are imported,
+%	so this should be a good starting point.
+%
+% Creator: Tommy O.
+
+% ----------------------
+% Package imports
+% ----------------------
+\documentclass[12pt, a4paper]{report}% 'twoside' for printing
+\usepackage[utf8]{inputenc}% Allow input to be UTF-8
+\usepackage[english]{babel}% Alternative: 'norsk'
+\usepackage{graphicx}% For importing graphics
+\usepackage{mathtools}% Fixes a few AMS bugs
+\usepackage{amsthm, amsfonts, amssymb}% All the AMS packages
+\usepackage{hyperref}% For \href{URL}{text}
+\usepackage{fancyhdr}% For fancy headers
+\usepackage[sharp]{easylist}% Easy nested lists
+\usepackage{parskip}% Web-like paragraphs
+\usepackage{multicol}% For multiple columns
+\usepackage[linesnumbered,ruled]{algorithm2e}% For algorithms
+\usepackage{tikz-cd}% For diagrams
+\usepackage{listings}% To include source-code
+%\usepackage{geometry}% May be used to set margins
+
+% ----------------------
+% Package setup
+% ----------------------
+
+% Theorems, definition and examples
+\theoremstyle{plain} 
+\newtheorem{theorem}{Theorem} 
+\theoremstyle{definition} 
+\newtheorem{definition}{Definition} 
+\newtheorem{example}{Example}
+
+% Setup for the fancyhdr package
+\rhead{\thepage}
+\lhead{\nouppercase{\leftmark}}
+
+% Section numbers in equations
+\numberwithin{equation}{section} 
+
+% ----------------------
+% Misc settings
+% ----------------------
+
+% Make theorem and definition titles bold
+\makeatletter
+\def\th@plain{%
+	\thm@notefont{}% same as heading font
+	\itshape % body font
+}
+\def\th@definition{%
+	\thm@notefont{}% same as heading font
+	\normalfont % body font
+}
+\makeatother
+
+% ----------------------
+% Document variables
+% ----------------------
+
+\title{ARTICLE PLUS}
+\author{Tommy O.}
+
+% ----------------------
+% Document start
+% ----------------------
+
+\begin{document}
+\maketitle
+\pagestyle{fancy}
+\begin{abstract}
+Lorem ipsum ...
+\end{abstract}
+\tableofcontents
+
+% ----------------------
+% Document content start
+% ----------------------
+
+\include{chapters/chapter_1}
+
+\section{SECTION}
+Hello world. We start with a definition:
+\begin{definition}[Group]
+	A group is a set $S$ along with an operation $\circ$
+	with four axioms: identity, associativity, closure and inverse.
+\end{definition}
+\begin{theorem}[Pytagorean theorem]
+	\label{thm:pyta}
+	For a triangle with sides $a$, $b$ and $c$,
+	it is true that $a^2 + b^2 = c^2$.
+\end{theorem}
+\begin{proof}
+	Here comes the proof...
+\end{proof}
+Look closely at theorem \ref{thm:pyta}, in other words theorem \eqref{thm:pyta}.
+Here is a list:
+\begin{itemize}
+	\item But if the rebellion is to be successful.
+	\item not to  between two, it is necessary.
+	\item think that there is no.
+
+\end{itemize}
+\pagebreak
+Another list:
+\begin{easylist}[enumerate]
+	# think that there is no.
+	# When a rational conviction has.
+	# in oneself whatever.
+\end{easylist}
+
+\begin{equation}
+	T = \frac{1}{2}m v^2
+\end{equation}
+
+A .bib file will contain the bibliographic information of our document.
+
+A .bib file will contain the bibliographic information of our document. I will only give a simple example, since there are many tools to generate the entries automatically.
+
+A .bib file will contain the bibliographic information of our document. I will only give a simple example, since there are many tools to generate the entries automatically. I will not explain the structure of the file itself.
+
+% -------------------------
+% ---- BIBLIOGRAPHY
+% -------------------------
+
+\bibliographystyle{apalike} % 'alpha' is also good
+%\bibliography{bibliography} % Reference to 'bibliography.bib'
+\end{document}
+
+

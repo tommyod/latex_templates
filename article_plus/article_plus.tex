@@ -49,6 +49,9 @@
 % Misc settings
 % ----------------------
 
+% Spacing between easylist items
+\newcommand{\listSpace}{-0.25em}
+
 % Make theorem and definition titles bold
 \makeatletter
 \def\th@plain{%
@@ -100,15 +103,18 @@ Hello world. We start with a definition:
 \end{proof}
 Look closely at theorem \ref{thm:pyta}, in other words theorem \eqref{thm:pyta}.
 Here is a list:
-\begin{itemize}
-	\item But if the rebellion is to be successful.
-	\item not to  between two, it is necessary.
-	\item think that there is no.
+\begin{easylist}[itemize]
+	\ListProperties(Space=\listSpace, Space*=\listSpace)
+	# But if the rebellion is to be successful.
+	# not to  between two, it is necessary.
+	# think that there is no.
+	# When a rational conviction has.
+\end{easylist}
 
-\end{itemize}
 \pagebreak
 Another list:
 \begin{easylist}[enumerate]
+	\ListProperties(Space=\listSpace, Space*=\listSpace)
 	# think that there is no.
 	# When a rational conviction has.
 	# in oneself whatever.
