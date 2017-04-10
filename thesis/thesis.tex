@@ -15,8 +15,11 @@
 \usepackage[utf8]{inputenc}% Allow input to be UTF-8
 \usepackage[english]{babel}% Alternative: 'norsk'
 \usepackage{graphicx}% For importing graphics
-\usepackage{mathtools}% Fixes a few AMS bugs
 \usepackage{amsthm, amsfonts, amssymb}% All the AMS packages
+\usepackage{mathtools}% Fixes a few AMS bugs
+\usepackage[expansion=false]{microtype}% Fixes to make typography better
+\usepackage[textsize=footnotesize]{todonotes}% Adds \todo{text} comments
+\setlength{\marginparwidth}{2cm}% More space for the todo notes
 \usepackage{hyperref}% For \href{URL}{text}
 \usepackage{fancyhdr}% For fancy headers
 \usepackage[sharp]{easylist}% Easy nested lists
@@ -25,6 +28,8 @@
 \usepackage[linesnumbered,ruled]{algorithm2e}% For algorithms
 \usepackage{tikz-cd}% For diagrams
 \usepackage{listings}% To include source-code
+%\usepackage[sc]{mathpazo}% A nice font, alternative to CM
+\usepackage[headings]{fullpage}% Make margins smaller
 %\usepackage{geometry}% May be used to set margins
 
 % ----------------------
@@ -43,7 +48,7 @@
 \lhead{\nouppercase{\leftmark}}
 
 % Section numbers in equations
-\numberwithin{equation}{section} 
+\numberwithin{equation}{chapter} 
 
 % ----------------------
 % Misc settings
@@ -120,7 +125,7 @@ Another list:
 	T = \frac{1}{2}m v^2
 \end{equation}
 
-A .bib file will contain the bibliographic information of our document.
+A .bib file will contain the bibliographic information of our \todo{Write more here.}document.
 
 A .bib file will contain the bibliographic information of our document. I will only give a simple example, since there are many tools to generate the entries automatically.
 
