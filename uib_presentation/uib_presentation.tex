@@ -1,0 +1,170 @@
+% Title:
+% 	UiB presentation template
+% ----------------------
+% Description:
+% 	A UiB presentation template. Based loosely on
+%	http://kapd.h.uib.no/profilmanual/02Maler/02bb1_PPTPresentasjon.html
+%
+% Creator: Tommy O.
+
+% ----------------------
+% Setup
+% ----------------------
+\documentclass[12pt, aspectratio=149]{beamer}
+% Options for aspectratio: 1610, 149, 54, 43 and 32, 169
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usecolortheme{beaver} % Decent options: beaver, rose, crane
+\usepackage{listings}
+
+\title{Presentation title}
+\subtitle{Presentation subtitle}
+\institute{University of Bergen}
+\date{\today}
+\author{Tommy Odland}
+
+% ----------------------
+% Package imports
+% ----------------------
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage[sharp]{easylist}
+\usepackage{multicol}
+\usepackage{tikz-cd}
+
+
+% Set up colors to be used
+
+\definecolor{purered}{RGB}{204,0,0}
+\definecolor{titlered}{RGB}{229,78,71}
+\definecolor{bggray}{RGB}{242,242,242}
+\definecolor{bggraydark}{RGB}{217,217,217}
+
+% Change the default colors
+
+\setbeamercolor*{title}{bg=bggray,fg=titlered}
+\AtBeginEnvironment{theorem}{%
+	\setbeamercolor{block title}{fg=titlered, bg=bggraydark}
+	\setbeamercolor{block body}{fg=black,bg=bggray}
+}
+\AtBeginEnvironment{proof}{%
+	\setbeamercolor{block title}{bg=bggraydark}
+	\setbeamercolor{block body}{fg=black,bg=bggray}
+}
+\AtBeginEnvironment{example}{%
+	\setbeamercolor{block title example}{bg=bggraydark}
+	\setbeamercolor{block body example}{fg=black,bg=bggray}
+}
+\AtBeginEnvironment{definition}{%
+	\setbeamercolor{block title}{bg=bggraydark}
+	\setbeamercolor{block body}{fg=black,bg=bggray}
+}
+
+\setbeamercolor{block title example}{bg=bggraydark}
+\setbeamercolor{block body example}{fg=black,bg=bggray}
+\setbeamercolor{block title}{bg=bggraydark}
+\setbeamercolor{block body}{fg=black,bg=bggray}
+
+\setbeamercolor{frametitle}{fg=titlered,bg=bggray}
+\setbeamercolor{section in head/foot}{bg=black}
+\setbeamercolor{author in head/foot}{bg=black}
+\setbeamercolor{date in head/foot}{fg=titlered}
+
+% Custom mathematics commands
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+
+% Spacing for lsits
+\newcommand{\listSpace}{0.2em}
+
+% Theorems, equations, definitions setup
+\theoremstyle{plain}
+% ----------------------
+% Document start
+% ----------------------
+
+\begin{document}
+\maketitle
+\addtobeamertemplate{frametitle}{}{%
+\begin{tikzpicture}[remember picture,overlay]
+  	\node[anchor=south west,yshift=0pt, xshift=4pt] at (current page.south west) {\includegraphics[height=0.75cm]{figs/UiB_MN_left.pdf}};
+\end{tikzpicture}}
+  
+\begin{frame}{Table of contents}
+	\tableofcontents
+\end{frame}
+
+\begin{frame}[fragile]{A slide with bullet points}
+	\begin{easylist}[itemize]
+		\ListProperties(Space=\listSpace, Space*=\listSpace)
+		# Represent Abelian groups on the computer
+		# Compute on Abelian groups
+		# Solve equations, factor group homomorphisms
+	\end{easylist}
+\end{frame}
+
+\begin{frame}[fragile]{A slide with a theorem and a proof.}
+\begin{theorem}[Integral]
+	\begin{equation*}
+		\int_{a}^{b} f(x) \, dx = F(b) - F(a)
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+Here's the proof.
+\end{proof}
+\end{frame}
+
+\begin{frame}[fragile]{A slide with two columns}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+	\begin{easylist}[itemize]
+		\ListProperties(Space=\listSpace, Space*=\listSpace)
+		# Represent Abelian groups
+		# Compute on Abelian
+		# Solve equations
+	\end{easylist}
+\end{column}
+\begin{column}{0.5\textwidth}
+    \begin{center}
+     \includegraphics[width=0.5\textwidth]{figs/UiB_logo.pdf}
+     \end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]{A slide with blocks}
+	\begin{block}{title of the bloc}
+	bloc text
+	\end{block}
+	
+	\begin{exampleblock}{title of the bloc}
+	bloc text
+	\end{exampleblock}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{A slide using pause}
+	\begin{easylist}[itemize]
+		\ListProperties(Space=\listSpace, Space*=\listSpace)
+		# Represent Abelian groups on the computer \pause
+		# Compute on Abelian groups \pause
+		# Solve equations, factor group homomorphisms
+	\end{easylist}
+\end{frame}
+
+
+\end{document}
