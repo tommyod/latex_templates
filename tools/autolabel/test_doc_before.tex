@@ -1,0 +1,57 @@
+\documentclass[11pt, a4paper]{report} % 'twoside' when printing
+\usepackage[utf8]{inputenc}				% UTF-8 input
+\usepackage[english]{babel}				% Set language to english
+\usepackage{blindtext}					% Use \Blinddocument or \blindmathpaper
+\usepackage{graphicx}					% For graphics
+\usepackage{hyperref}					% Internal and external hyperlinks
+\usepackage{amsmath}					% Math from AMS
+\usepackage{amsfonts}					% Fonts from AMS
+\usepackage{amsthm}						% Theorems
+\usepackage{amssymb}					% Symbols
+
+\theoremstyle{plainspaced}
+\newtheorem{theorem}{Theorem}[chapter]			% Theorem style
+\newtheorem{lemma}[theorem]{Lemma}				% Lemma style
+\newtheorem{problem}[theorem]{Problem}			% Lemma style
+\newtheorem{proposition}[theorem]{Proposition}	% Proposition style
+
+\theoremstyle{plainspaced}
+\newtheorem{definition}[theorem]{Definition}	% Definition style
+\theoremstyle{definitionspaced}
+\newtheorem{example}[theorem]{Example}	% Definition style
+%\renewcommand{\qedsymbol}{}				% Remove Q.E.D in theorems
+
+%opening
+\title{A test document}
+\author{John Smith}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+\section{My section}
+
+\begin{definition}[My first definition]
+	This is a definition.
+\end{definition}
+
+\begin{theorem}[Fermats little theorem]
+	\label{thm:fermat}
+\end{theorem}
+
+\begin{theorem}[Fermats big theorem]
+	Here goes!
+\end{theorem}
+
+\begin{definition}[My second defintion]
+	This is a definition.
+\end{definition}
+
+\subsection{A subsection}
+\label{subsec:a_subsection}
+
+\end{document}
