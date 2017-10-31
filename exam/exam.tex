@@ -1,0 +1,541 @@
+% Title:
+% 	EXAM TEMPLATE
+% ----------------------
+% Description:
+% 	A template for exams/problem sheets.
+%	For thorough documentation of the exam class,
+%	see :
+%	http://ftp.acc.umu.se/mirror/CTAN/macros/latex/contrib/exam/examdoc.pdf
+%	http://www-math.mit.edu/~psh/exam/examdoc.pdf
+%
+% Creator: Tommy O.
+
+% ------------------------------------------------------------------
+% ---------------------- Package imports ---------------------------
+% ------------------------------------------------------------------
+\documentclass[12pt, addpoints, a4paper]{exam}
+\usepackage[utf8]{inputenc}		% Allow input to be UTF-8
+\usepackage[norsk]{babel}		% Alternative: 'norsk'
+\usepackage{graphicx}			% For importing graphics
+\usepackage{amsmath}			% AMS mathematics package
+\usepackage{amsthm}				% AMS mathematics package
+\usepackage{amsfonts}			% AMS mathematics package
+\usepackage{amssymb}			% AMS mathematics package
+\usepackage{mathtools}			% Fixes a few AMS bugs
+\usepackage{hyperref}			% For \href{URL}{text}
+\usepackage{enumitem}			% For enumeration
+\usepackage{color} 				% Defines a new color
+\usepackage{lastpage}			% For \pageref{LastPage}
+\usepackage{booktabs}					% Professional tables
+\usepackage{parskip}					% Paragraph space
+\usepackage[sharp]{easylist}			% For easy lists
+\usepackage[expansion=false]{microtype} % Fixes to make typography better
+\usepackage[margin = 2.25cm, includehead, includefoot]{geometry}
+%\usepackage[sc]{mathpazo}				% A nice font, alternative to CM
+
+% ------------------------------------------------------------------
+% ---------------------- Constants ---------------------------------
+% ------------------------------------------------------------------
+\newcommand{\mytitle}{Exam title}
+\newcommand{\mysubject}{R1 matematikk}
+\newcommand{\mydate}{\today}
+\newcommand{\myauthor}{Tommy O.}
+
+% Redefine language stuff
+\newcommand{\myrhead}{Metis Privatistskole}
+\newcommand{\mypagename}{Side}
+\newcommand{\mycreated}{Laget av:}
+\newcommand{\mysolname}{Løsning}
+\renewcommand{\solutiontitle}{\noindent\textbf{\mysolname.}\hspace{0.75em}}
+\pointname{ poeng}
+
+% ------------------------------------------------------------------
+% ---------------------- Settings ----------------------------------
+% ------------------------------------------------------------------
+%\shadedsolutions
+\printanswers % Alternative: \noprintanswers, \printanswers
+%\rhead{{\scshape {\footnotesize  \myrhead}}}
+%\cfoot{\mypagename \enspace \thepage}
+\definecolor{SolutionColor}{rgb}{0.8,0.9,1} % light blue
+
+% Headers and footers
+\runningfootrule
+\firstpagefootrule
+\firstpagefooter{\mysubject}{}{\mypagename\ \thepage\ av \pageref*{LastPage}}
+\runningfooter{\mysubject}{}{\mypagename\ \thepage\ av \pageref*{LastPage}}
+\runningheader{}{}{\includegraphics[width = 1.5cm]{figs/logo.pdf}}
+
+
+\firstpageheadrule
+\firstpageheader{\mydate}{\mytitle}{\pageref*{LastPage} sider totalt}
+
+%\runningfooter{MyName}{MyTitle}{}
+%\runningheader{MyName}{MyTitle}{ThePage}
+
+% Answer
+\def\answer#1{\underline{\underline{#1}}}
+
+% ------------------------------------------------------------------
+% ---------------------- Document start ----------------------------
+% ------------------------------------------------------------------
+\begin{document}
+\pagestyle{headandfoot}
+\noindent {\scshape \Large  \mytitle 
+	\ifprintanswers
+	\enspace (\mysolname	 )
+	\fi
+	} \\
+\noindent {\mycreated \enspace  \myauthor} \vspace{1px}
+\hrule \hrule
+\subsection*{Instruks}
+\begin{center}
+\fbox{\fbox{\parbox{.9\textwidth}{
+			\textbf{Del 1} \hspace*{1em} Innleveringen skal føres, ikke kladdes. Skriv \textbf{klart og tydelig} med penn. Vis nok utregninger til at jeg klart kan se hvordan du kom frem til svaret. Sett \answer{2 streker} under ditt endelige svar. Lever besvarelsen til meg i timen. \vspace*{1em} \\ 
+	\textbf{Del 2} \hspace*{1em} Bruk Geogebra så mye du kan, ta skjermbilder og lim inn. Sett 2 streker under riktig svar og skriv nok til at jeg kan se hvordan du kom frem til svaret. Lever \texttt{.docx} og \texttt{.pdf} på ItsLearning.
+}}}
+\end{center}
+\vspace{5mm}
+%\noindent \makebox[\textwidth]{Fullt navn:\enspace\hrulefill}
+
+% ------------------------------------------------------------------
+% ---------------------- Content start -----------------------------
+% ------------------------------------------------------------------
+\section*{Del 1 -- Uten hjelpemidler}
+\begin{questions}
+\addpoints
+\question {\bfseries Derivasjon}
+\begin{parts}
+\part[1] Deriver funksjonen $f(x) = \left( x^2 + 2\right)^4$
+\begin{solution}
+	Vi bruker kjerneregelen med $u = x^2 + 2$. Da blir $u' = 2x$ og vi får
+	\begin{equation*}
+		f'(x) = f'(u) u' = 4u^3 (2x) = \answer{8x \left(x^2 + 2\right)^3}
+	\end{equation*}
+\end{solution}
+
+\part[1] Deriver funksjonen $g(x) = \frac{e^x}{x}$
+\begin{solution}
+	Skriv funksjonen som faktorer, slik at vi får $g(x) = \frac{e^x}{x} = e^x x^{-1}$.
+	Bruk deretter produktregelen $(uv) = u'v + uv'$, med $u = e^x$ og $v = x^{-1}$.
+	Vi får denne utregningen:
+	\begin{align*}
+	g'(x) &= \left( e^x \right)' x^{-1} + e^x \left( x^{-1} \right)' \\
+	&= e^x x^{-1} + e^x (-1) x^{-2} \\
+	&= \frac{e^x}{x} - \frac{e^x}{x^2} \\
+	&= \frac{xe^x}{x^2} - \frac{e^x}{x^2} \\
+	&= \answer{\frac{e^x(x-1)}{x^2}}
+	\end{align*}
+\end{solution}
+
+\part[1] Deriver funksjonen $h(x) = e^{-x} \ln \left(x^2\right)$
+\begin{solution}
+	Vi må bruke kjernereglen og produktregelen. La $u = e^{-x}$ og $v = \ln \left(x^2\right)$, vi regner ut de deriverte
+	\begin{align*}
+		u' &= - e^{-x} \\
+		v' &= \frac{1}{x^2} (2x) = \frac{2}{x}
+	\end{align*}
+	Nå bruker vi produktregelen $(uv) = u'v + uv'$
+	\begin{align*}
+	h'(x) &= u'v + uv' \\
+		  &= - e^{-x} \ln \left(x^2\right)  + e^{-x}\frac{2}{x}  \\
+		  &= - 2e^{-x} \ln \left(x\right)  + e^{-x}\frac{2}{x}  \\
+		  &= \answer{2 e^{-x} \left(  \frac{1}{x} - \ln \left(x\right) \right) }
+	\end{align*}
+\end{solution}
+\end{parts}
+
+
+
+\question {\bfseries En polynomfunksjon \\}
+Vi ser på følgende polynomfunksjon
+\begin{equation*}
+	p(x) = x^{3} - 13 x + 12
+\end{equation*}
+\begin{parts}
+	\part[1] Vi at divisjonen $p(x) : (x-1)$ går opp uten å utføre polynomdivisjon.
+	\begin{solution}
+		Vi sjekker at $p(1) = 0$ slik
+		\begin{equation*}
+		p(1) = (1)^{3} - 13 (1) + 12 = 1 - 13 + 12 = 0
+		\end{equation*}
+	\end{solution}
+	
+	\part[1] Finn alle løsningen til likningen $p(x) = 0$.
+	\begin{solution}
+		Dette er det samme som å finne nullpunktene til $p(x)$.
+		Vi regner ut $p(x) : (x-1) = x^{2} + x - 12 = (x-3)(x+4)$,
+		der den siste likheten kommer fra å bruke ABC-formelen.
+		Da kan vi faktorisere slik:
+		\begin{equation*}
+			p(x) = (x-1)(x-3)(x+4)
+		\end{equation*}
+		Og løsningsmengden er \answer{$L = \left\{1, 3, -4\right\}$}.
+	\end{solution}
+	
+	\part[1] Regn ut $p'(1)$. Hva betyr svaret?
+	\begin{solution}
+		Den deriverte blir
+		\begin{equation*}
+			p'(x) = 3 x^{2} - 13
+		\end{equation*}
+		og vi får $p'(1) = 3 (1)^{2} - 13 = 3 - 13 = -10$.
+		Den deriverte er stigningen i et punkt.
+		Tolkningen av svaret er at i punktet $x = 1$ så synker funksjonen slik at $\Delta x / \Delta y = -10$.
+		Med andre ord er stigningen til tangenten i punktet $x = 1$ lik $-10$.
+	\end{solution}
+
+	\part[1] Finn $x$-verdiene som tilhører eventuelle topp- og bunnpunkt.
+	\begin{solution}
+		I et ekstremalpunkt er $p'(x) = 0$, så vi løser
+		\begin{align*}
+			p'(x) &= 3 x^{2} - 13 = 0 \\
+				& 3 x^{2}  = 13 \\
+				& x = \pm \sqrt{\frac{13}{3}}
+		\end{align*}
+		For å karakterisere punktene kan vi bruke fortegnslinje eller andrederiverttesten.
+		La oss se på den andrederiverte. Vi får at $p''(x) = 6x$. I punktet $x = - \sqrt{13/3}$
+		er $p''(x) < 0$, slik at \answer{$p(- \sqrt{13/3})$ er et toppunkt}. I punktet $x = \sqrt{13/3}$
+		er $p''(x) > 0$, slik at \answer{$p( \sqrt{13/3})$ er et bunnpunkt}.
+	\end{solution}
+
+\part[1] Finn eventuelle vendepunkter.
+\begin{solution}
+	Et vendepunkt oppstår når $p''(x)$ skifter fortegn. Vi vet at $p''(x) = 6x$, så vendepunktet har $x=0$
+	fordi $p''(x) = 6x$ skifter fortegn i punktet $x=0$. $y$-verdien er gitt av $p(0) = 12$, og \answer{vendepunktet blir da $(0, 12)$}.
+\end{solution}
+\end{parts}
+
+
+%\question {\bfseries Statistikk \\}
+%Vi ser på følgende data
+%\begin{equation*}
+%D = \left\{ 3, 4, 3, 1, x, 4 \right\}
+%\end{equation*}
+%\begin{parts}
+%	\part[1] Hva må $x$ være for at gjennomsnittsverdien skal være 3?
+%	\begin{solution}
+%		Vi må ha at $x=3$.
+%	\end{solution}
+%	
+%	\part[1] La oss se på $D$ som et utfallsrom for en stokastisk variabel $X$. Hva er da $P(X = 3)$?
+%	\begin{solution}
+%		\begin{equation*}
+%			P(X = 3) = \frac{\text{gunstige}}{\text{mulige}} = \frac{3}{6} = \answer{\frac{1}{2}}
+%		\end{equation*}
+%	\end{solution}
+%	
+%	\part[1] Hva er variansen til $X$, og hva er standardavviket til $X$?
+%	\begin{solution}
+%		\begin{align*}
+%			\operatorname{Var}(X) &= \frac{1}{n} \sum_{i} \left(x_i - \mu \right)^2 \\
+%			&= \frac{1}{6} \left((3-3)^2 + (4-3)^2 + (3-3)^2 + (1-3)^2 + (3-3)^2 + (4-3)^2 \right) \\
+%			&= \frac{1}{6} \left(0+1+0+4+0+1 \right) \\
+%			&= \frac{1}{6} 6 = \answer{1}
+%		\end{align*}
+%		Standardavviket er kvadratroten av variansen: $\operatorname{SD}(X) = \sqrt{\operatorname{Var}(X)} = \sqrt{1} = \answer{1}$.
+%	\end{solution}
+%\end{parts}
+
+\question {\bfseries Summer \\}
+\begin{parts}
+	\part[1] Vi ser på rekken
+	\begin{equation*}
+		1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + ...
+	\end{equation*}
+	Er rekken aritmetisk, geometrisk, eller ingen av delene?
+	\begin{solution}
+	Sett $a_1 = 1$, $a_2 = \frac{1}{2}$ og $a_3 = \frac{1}{3}$.
+	Dersom rekken er aritmetisk må differansen være konstant, men
+	\begin{align*}
+		a_2 - a_1 &=  \frac{1}{2} - 1 = - \frac{1}{2} \\
+		a_3 - a_2 &=  \frac{1}{3}  - \frac{1}{2} = - \frac{1}{6} 
+	\end{align*}
+	Differansen er ikke konstant, så rekken er ikke aritmetisk.
+	Dersom rekken er geometrisk må kvotienten/faktoren være konstant, men
+	\begin{align*}
+	a_2 / a_1 &=  \frac{1}{2} / 1 = \frac{1}{2} \\
+	a_3 / a_2 &=  \frac{1}{3}  / \frac{1}{2} = \frac{2}{3} 
+	\end{align*}
+	Kvotienten er ikke konstant, så rekken er ikke geometrisk. \\
+	\answer{Rekken er verken aritmetisk eller geometrisk.}
+	\end{solution}
+
+	\part[1] Regn ut summen $50 + 51 + ... + 99+ 100$.
+	\begin{solution}
+		Vi bruker formelen
+		\begin{equation*}
+			S = \frac{a_1 + a_n}{2} n
+		\end{equation*}
+		med $a_1= 50$, $a_n= 100$ og $a_1= 51$, vi får da
+		\begin{equation*}
+		S = \frac{50 + 100}{2} 51 = 75 (51) = 75(50 + 1) = \answer{3825}
+		\end{equation*}
+	\end{solution}
+
+	\part[1] Mons ønsker å ha nok penger på konto slik at renteoverskudded hvert år blir 25000.
+	Renten er 5\%. Hvor mye må Mons ha på konto?
+	\begin{solution}
+		La $P$ være penger på konto. Vi må løse $P \times 0.05 = 25000$, vi får
+		\begin{equation*}
+		P = \frac{25000}{0.05} = \frac{25000}{\left(\frac{1}{20}\right)} = 25000 \times 20 = \answer{500000}
+		\end{equation*}
+	\end{solution}
+
+	\part[1] En lege skal administrere en type cellegift til en pasient over lang tid.
+	Vi ser for oss at 1000 milligram cellegift er øvre grense hvor hva en pasient kan ha i kroppen.
+	\begin{subparts}
+		\subpart[1] Anta at kroppen bryter ned 20\% av cellegiften hver dag.
+		Er det trygt å gi pasienten 300 milligram cellegift per dag? Hvorfor/hvorfor ikke?
+		\begin{solution}
+			Pasienten vil etter lang tid ha
+			\begin{align*}
+				&300 + (0.8)300 + (0.8)^2 300 + (0.8)^3 300 + ... = \\
+				&300\left(1 + 0.8 + 0.8^2 + 0.8^3 + ...\right) = \\
+				&300 \frac{1}{1-0.8} = \\
+				&300 \times 5 = 1500 \text{ mg} \\
+			\end{align*}
+			i blodet. Dette er over øvre grense. Det er \answer{ikke trygt}.
+		\end{solution}
+	
+		\subpart[1] Hva må nedbrytningsprosenten være for at de skal være trygt?
+		\begin{solution}
+			Vi løser
+			\begin{align*}
+			&300 + (x)300 + (x)^2 300 + (x)^3 300 + ... = 1000 \\
+			&300 \frac{1}{1-x} = 1000 \\
+			&\frac{1}{1-x} = \frac{10}{3} \\
+			&\frac{1}{1-x} = \frac{10}{3} \\
+			&1 = \frac{10}{3} (1-x) \\
+			&\Leftrightarrow x = \frac{7}{10} \\
+			\end{align*}
+			\answer{Nedbrytningsprosenten må være 30\%}.
+		\end{solution}
+	\end{subparts}
+\end{parts}
+\end{questions}
+
+
+\section*{Del 2 -- Med hjelpemidler}
+\begin{questions}
+
+\question {\bfseries Maksimere overskudd \\}
+En bedrift har følgende totale kostnad og inntekt per dag knyttet til
+produksjonen av varer, der $x$ er antall varer produsert på én dag.
+\begin{align*}
+	K(x) &= 0.1x^2 - 5x + 2200 \\
+	I(x) &= 1200 \ln (x+1)
+\end{align*}
+
+\begin{parts}
+\part[1] Bestem $K'(60)$ og $I'(60)$. Kan du ut i fra tallene si om bedriften
+bør produsere flere eller færre enn 60 enheter per dag?
+\begin{solution}
+	Her bør du bruke CAS i Geogebra. Skriv inn \\
+	\texttt{K(x) := 0.1*x*x - 5*x + 2200} \\
+	\texttt{K'(60)} \\
+	og du får at $\answer{K'(60) \approx 7}$. På samme måte får du at $\answer{I'(60) \approx 19.67}$.
+	Ettersom grenseinntekten er høyere enn grensekostnaden bør bedriften
+	produsere \answer{flere enn 60} enheter per dag.
+\end{solution}
+
+\part[1] Bestem produksjonsmengden som gir størst overskudd for bedriften.
+\begin{solution}
+	Definer en ny funksjon for overskuddet i Geogebra: \\
+	\texttt{O(x) := I - K} \\
+	Bruk så \\ \texttt{Ekstremalpunkt[ <Funksjon>, <Start>, <Slutt> ]}\\
+	kommandoen til å finne maksimum.
+	Vi får at $(x, y) = (90.54, 2853.08)$. Vi undersøker både $x = 90$ og $x = 91$.
+	Når $x = 90$ får vi $O(90) = 2853.03$, og når $x = 91$ får vi $O(91) = 2853.05$.
+	Overskuddet er størst når produksjonsmengden \answer{$x$ er lik $91$}
+\end{solution}
+\end{parts}
+
+
+\question {\bfseries Vekstmodell \\}
+Det høres måling av antall fisk i et oppdrettsanlegg.
+Følgende måling ble gjort, der $d$ er antall dager etter at vi startet oppdrett
+og $A_d$ er antall fisk mål på dag $d$.
+
+\begin{center}
+	\begin{tabular}{l|llllllll}
+		$d$ &  10&	20&	30&	40&	50&	60&	70&	80 \\ \hline
+		$A_d$ & 53&	122&	257&	468&	674	&799&	854&877
+	\end{tabular}
+\end{center}
+
+\begin{parts}
+	\part[1] Bestemt konstantene i modellen for logistisk vekst slik
+	at modellen passer til dataene. Med andre ord, bestem $C$, $a$ og $b$ i:
+	\begin{equation*}
+		A(d) = \frac{C}{1 + a e^{-bd}}
+	\end{equation*}
+	\begin{solution}
+		Bruk regresjonsanalyse i Geogebra.
+		Skriv inn i regnearket, marker og velg regresjonsanalyse. Du får
+		\begin{align*}
+			C &= 893.99 \approx \answer{894.0} \\
+			a &= 47.92 \approx \answer{47.9} \\
+			b &= 0.0994 \approx\answer{ 0.1} 
+		\end{align*}
+	\end{solution}
+
+	\part[1] Hvor mange fisk startet oppdrettsanlegget med i følge modellen?
+\begin{solution}
+	Regn ut $A(0)$, antall fisk ved dag 0. Vi får $A(0) = 18.27 \approx \answer{18}$.
+\end{solution}
+
+	\part[1] Hva er grensen for hvor mange fisk det kan være i oppdrettsanlegget i følge modellen?
+\begin{solution}
+	Dette kan vi lese av som $C$ i uttrykket $A(d) = \frac{C}{1 + a \exp(-bd)}$.
+	Bærekapaisteten er $C = \answer{894}$ fisk.
+\end{solution}
+
+	\part[1] Hvor mange fisk var det etter 55 dager i følge modellen?
+\begin{solution}
+	Regn ut $A(55) = 743.57 \approx \answer{744}$ fisk.
+\end{solution}
+
+	\part[1] Når vokste fiskebestanden raskest?
+\begin{solution}
+	\textbf{Alternativ 1:} \\
+	Regn ut den deriverte av $A(d)$ i CAS i Geogebra.
+	Bruk deretter \\
+	\texttt{Maks[ <Funksjon>, <Start x-verdi>, <Slutt x-verdi> ]} \\
+	til å finne maksimum til den deriverte.
+	Maksimum skjer når $x = 38.92 \approx \answer{39}$,
+	og da sted fiskebestanden med omtrent $22$ fisk per dag
+	fordi $A'(38.92) = 22.21$. \\
+	\textbf{Alternativ 2:} \\
+	Du kan bruke at $A(d)$ vokser raskest når $A(d) = C/2$. Se kapittelsammendrag i læreboka.
+	Du skal få samme svar.
+\end{solution}
+
+\end{parts}
+
+
+
+
+\question {\bfseries Bensinforbruk \\}
+En bil kjører $x$ kilometer i løpet av $t$ timer, der $x$ er gitt ved
+\begin{equation*}
+	x(t) = 60t +30e^{-0.4t} - 25
+\end{equation*}
+
+
+\begin{parts}
+\part[1] Hvor langt kjører bilen i løpet av den første halvtimen?
+\begin{solution}
+	Regn ut $x(0.5) = 29.56$. Bilen kjører $\answer{29.6}$ kilometer i løpet av den første halvtimen.
+\end{solution}
+
+\part[1] Bruk digitalt verktøy og bestem hvor lang tid bilen bruker på de første 500 km.
+\begin{solution}
+	Vi må finne $t^*$ slik at $x(t^*) = 500$. Lag $y = 500$ i Geogebra og finn krysning.
+	Vi får punktet $(x,y) = (8.73, 500)$. Bilen bruker $8.73$ timer på de første 500 km,
+	dette tilsvarer \answer{8 timer} og $0.73 \times 60 \approx \answer{44 \text{ minutter}}$.
+\end{solution}
+
+
+
+\part[1] Det samlede bensinforbruket $b$ etter å ha kjørt $x$ km
+er gitt ved
+\begin{equation*}
+	b(x) = 0.05x\left(1+ e^{-0.5x}\right)
+\end{equation*}
+der $b(x)$ er målt i liter. Bestem $b'(x)$ uten å bruke digitale hjelpemidler.
+Forklar hvilke derivasjonsregler du har brukt.
+Hva er den praktiske betydningen av tallet $b'(10)$?
+\begin{solution}
+	Vi må bruke kjerneregelen på $f (x) = e^{-0.5x}$, slik at $f'(x) = -0.5 e^{-0.5x}$.
+	Vi må også bruke produktregelen. Svaret blir
+	\begin{align*}
+		b'(x) &= (0.05x)'\left(1+ e^{-0.5x}\right) + (0.05x)\left(1+ e^{-0.5x}\right)' \\
+		&= 0.05\left(1+ e^{-0.5x}\right) + (0.05x)\left( (-0.5)e^{-0.5x}\right) \\
+		&= \answer{0.05 \left(1 + e^{-0.5x} - 0.5xe^{-0.5x}\right)}
+	\end{align*}
+	Dersom $b(x)$ er det samlede bensinforbruket er $b'(x)$ endringen i det samlede forbruket.
+	Endringen i det samlede forbruket er forbruket etter $x$ kilometer.
+	\answer{$b'(x)$ er det momentane (øyeblikkelige) forbruket per kilometer.}
+	Eksempel: $b'(10)$ er forbruket per kilometer etter 10 kilometer.
+\end{solution}
+
+\part[1] Det kan vises at bensinforbruket $f$ målt i liter per time etter
+$t$ timer er 
+\begin{equation*}
+	f(t) = b'(x) x'(t).
+\end{equation*}
+Bestemt bensinforbruket per minutt når bilen har kjørt i en halv time.
+\begin{solution}
+	Vi regner ut $x'(t)$, som blir $60 -12e^{-0.4t}$. Videre vet vi at
+	$b'(x) = 0.05 \left(1 + e^{-0.5x} - 0.5xe^{-0.5x}\right)$.
+	Vi skriver produktet $f(t) = b'(x) x'(t)$ som:
+	\begin{equation*}
+		f(t) = b'(x) x'(t) =0.05 \left(1 + e^{-0.5x} - 0.5xe^{-0.5x}\right) \left(60 -12e^{-0.4t}\right)
+	\end{equation*}
+	Etter en halv time har vi $x(t = 0.5) \approx 29.6$.
+	Vi får:
+	\begin{align*}
+	f(0.5) &= 0.05 \left(1 + e^{-0.5x} - 0.5xe^{-0.5x}\right) \left(60 -12e^{-0.4t}\right) \\
+	&= 0.05 \left(1 + e^{-0.5 \times 29.6} - 0.5\times 29.6 \times e^{-0.5 \times 29.6}\right) \left(60 -12e^{-0.4\times 0.5}\right) \\
+	&\approx 2.50875
+	\end{align*}
+	Etter en halv time er bensinforbruket ca 2.5 liter per time. Da er forbruket $2.50875/60 = \answer{0.042}$  liter per minutt. (Takk til Susanna. Hun regnet rett på denne oppgaven,
+	jeg regnet først feil.)
+\end{solution}
+
+\end{parts}
+
+
+
+
+
+
+
+\question {\bfseries Sushi-restaurant \\}
+Se på følgende kvitteringer fra en oppdiktet sushi-restaurant.
+\begin{parts}
+	\part[1] Regn ut prisen på laks, scampi og tunfisk.
+	\begin{solution}
+		Skriv inn følgende i Geogebra:
+		\texttt{
+		Nløs[\{ \\
+			2l + 1s + 2t = 88, \\
+			3l + 2s + 1t = 101, \\
+			3l + 1s + 2t = 103 \\
+		\},\{l, s, t\}]} \\
+	Løsningen blir \answer{$l = 15$, $s = 18$ og $t = 20$}.
+	\end{solution}
+\end{parts}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+\end{questions}
+
+%\hrule
+%\subsection*{For retting}
+%Ikke skriv noe her. \par \noindent
+%\gradetable[h][questions]	
+\end{document}
+	
