@@ -1,0 +1,107 @@
+\label{chapter:some_more_latex}
+
+\section{References and lists}
+
+Although \cite{strang_linear_1976} is a great introduction to linear algebra, \cite{roman_advanced_2005} presents the material in a more abstract way.
+
+Here's a list of some linear algebra concepts.
+\begin{easylist}[enumerate]
+	\ListProperties(Space=\listSpace, Space*=\listSpace, Numbers1=a, Numbers2=r)
+	
+	# Linear algebra is about matrices and vectors.
+	
+	## The elements are usually numbers from $\R$ or $\C$.
+	## Matrices are given by two indices, vectors by one.
+	
+	# Matrix multiplication is given by $y_i = \sum_j A_{ij} x_j$.
+	
+	# If $A = a_{ij}$, then the tranpose flips across the diagonal so that $A^T = a_{ji}$.
+	The transpose is the adjoint, i.e. $\innerprod{Ax}{y} = \innerprod{x}{A^Ty}$.
+\end{easylist}
+
+
+Here's a different type of list.
+
+\begin{easylist}[enumerate]
+	\ListProperties(Space=\listSpace, Space*=\listSpace, Numbers=r, FinalMark={)})
+	
+	# Linear algebra is about matrices and vectors.
+	
+	## The elements are usually numbers from $\R$ or $\C$.
+	## Matrices are given by two indices, vectors by one.
+
+\end{easylist}
+
+Here's a different type of list.
+
+\begin{easylist}[itemize]
+	\ListProperties(Space=\listSpace, Space*=\listSpace)
+	
+	# Linear algebra is about matrices and vectors.
+	
+	## The elements are usually numbers from $\R$ or $\C$.
+	## Matrices are given by two indices, vectors by one.
+	
+	# Matrix multiplication is given by $y_i = \sum_j A_{ij} x_j$.
+	
+	# If $A = a_{ij}$, then the tranpose flips across the diagonal so that $A^T = a_{ji}$.
+	The transpose is the adjoint, i.e. $\innerprod{Ax}{y} = \innerprod{x}{A^Ty}$.
+\end{easylist}
+
+
+\section{Algorithms}
+
+Here's an algorithm.
+
+\begin{algorithm}
+	\label{algo:student_algorithm}
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	%\DontPrintSemicolon % \PrintSemicolon
+
+	\Input{Student $s$.}
+	\Output{Inverse $s^{-1}$ such that $s \circ s^{-1} = s^{-1} \circ s = \text{Id}$.}
+	\BlankLine
+	
+	\tcp{Morning.}
+	Grab coffee\;
+	\While{thesis not finished}{
+		Read mathematics\;
+		Write thesis\;
+	}
+	Relax for an hour\;
+	\BlankLine
+	\tcp{Evening.}
+	\For{every friend $f \in F$}{
+		Call $f$\tcp*{Give your friends a call.} \label{algline:call_friends}
+		}
+	Sleep\;
+	\caption{Algorithm for a thesis.}
+\end{algorithm}
+
+Notice in Algorithm \ref{algo:student_algorithm} above that the student does in fact call his friends in line \ref{algline:call_friends}.
+
+Here's some Python code.
+
+\lstinputlisting[language = iPython, firstline=9]{./code/example_code/composition.py}
+
+
+\section{title}
+\blindtext
+
+\subsection{title}
+\blindtext
+
+\subsubsection{title}
+\blindtext
+
+\subsubsection{title}
+\blindtext
+
+\section{title}
+\blindtext
+\subsection{title}
+\blindtext
+
+\subsubsection{title}
+\blindtext

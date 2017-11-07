@@ -1,0 +1,346 @@
+% Master thesis main document
+% Author: Tommy O.
+% Fall 2017
+
+% -------------------------------------------------------------
+% ---- DOCUMENT INITIALIZATION AND PACKAGE IMPORTS
+% -------------------------------------------------------------
+
+\documentclass[12pt, a4paper, twoside]{report} % 'twoside' when printing
+\usepackage[utf8]{inputenc}				% UTF-8 input
+\usepackage[english]{babel}				% Set language to english
+\usepackage{blindtext}					% Use \Blinddocument or \blindmathpaper
+\usepackage{graphicx}					% For graphics
+\usepackage{fancyhdr}					% Fancy headers
+\usepackage{hyperref}					% Internal and external hyperlinks
+\usepackage{amsmath}					% Math from AMS
+\usepackage{amsfonts}					% Fonts from AMS
+\usepackage{amsthm}						% Theorems
+\usepackage{amssymb}					% Symbols
+\usepackage{enumitem}					% Enumeration
+\usepackage{mathtools} 					% Bonus
+\usepackage{color}						% Colors
+\usepackage{booktabs}					% Professional tables
+\usepackage{pdfpages}					% To include PDFs
+\usepackage{parskip}					% Paragraph space
+\usepackage{multicol}					% For multiple columns
+\usepackage[sharp]{easylist}			% For easy lists
+\usepackage{makeidx}					% For the index
+\usepackage[linesnumbered,ruled]{algorithm2e}	% For algorithms
+\usepackage{tikz-cd}					% For diagrams
+\usepackage{listings}					% To include Python-code
+\usepackage{etoolbox}					% To add symbol at end of examples
+\usepackage[expansion=false]{microtype} % Fixes to make typography better
+\usepackage[toc, page]{appendix} 		% To include appendices
+%\usepackage[headings]{fullpage}		% Smaller margins
+\usepackage[margin = 3cm, includehead, includefoot]{geometry}
+%\usepackage[sc]{mathpazo}				% A nice font, alternative to CM
+\usepackage{framed}						% To frame comments
+\usepackage{multirow}					% For multiple rows in tables
+\usepackage{afterpage}					% To insert blank pages
+\usepackage{blindtext}
+
+% -------------------------------------------------------------
+% ---- PACKAGE SET UP
+% -------------------------------------------------------------
+
+%\usepackage[T1]{fontenc}				% Different font if wanted
+\graphicspath{{figs/}}					% Path to graphics
+\pagestyle{fancy}						% Set page headers to fancy
+
+% PACKAGE SET UP -- algorithm2e
+\SetKw{Continue}{continue}
+\SetKw{Break}{break}
+\SetKw{Yield}{yield}
+\SetKw{In}{in}
+\SetKw{Not}{not}
+\newcommand\mycommfont[1]{\small\ttfamily{#1}}
+\SetCommentSty{mycommfont}
+
+% PACKAGE SET UP -- Theorems, equations, definitions setup
+\newtheoremstyle{plainspaced}
+{1em} % Space above
+{1em} % Space below
+{\em} % Body font
+{} % Indent amount
+{\bfseries} % Theorem head font
+{.} % Punctuation after theorem head
+{.5em} % Space after theorem head
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}} % Theorem head spec (can be left empty, meaning `normal')
+
+\newtheoremstyle{definitionspaced}
+{1em} % Space above
+{1em} % Space below
+{} % Body font
+{} % Indent amount
+{\bfseries} % Theorem head font
+{.} % Punctuation after theorem head
+{.5em} % Space after theorem head
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}} % Theorem head spec (can be left empty, meaning `normal')
+
+\theoremstyle{plainspaced}
+\newtheorem{theorem}{Theorem}[chapter]			% Theorem style
+\newtheorem{lemma}[theorem]{Lemma}				% Lemma style
+\newtheorem{problem}[theorem]{Problem}			% Lemma style
+\newtheorem{proposition}[theorem]{Proposition}	% Proposition style
+
+\theoremstyle{plainspaced}
+\newtheorem{definition}[theorem]{Definition}	% Definition style
+\theoremstyle{definitionspaced}
+\newtheorem{example}[theorem]{Example}			% Definition style
+
+% Add symbols at the end of example and definitions
+\AtEndEnvironment{example}{\null\hfill $\lrcorner$}%
+\AtEndEnvironment{definition}{\null\hfill $\lrcorner$}%
+
+% Must run this command to use index
+\makeindex
+
+% Spacing in easylist items and rows/cols in diagrams
+\newcommand{\listSpace}{-0.25em}
+\newcommand{\diagramSpace}{3em}
+
+% Set up for Python code
+\input{listings_setup}
+
+% -------------------------------------------------------------
+% ---- MISC SET UP
+% -------------------------------------------------------------
+
+% Custom mathematics commands
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand*\conj[1]{\overline{#1}}
+\DeclarePairedDelimiterX{\innerprod}[2]{\langle}{\rangle}{#1, #2}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\coim}{coim}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\T}{\mathbb{T}}
+\DeclareMathOperator{\F}{\mathcal{F}}
+\DeclareMathOperator{\BO}{\mathcal{O}}
+\DeclareMathOperator{\conv}{\ast}
+\DeclareMathOperator{\argmin}{\operatorname{argmin}}
+\DeclareMathOperator{\rank}{\operatorname{rank}}
+\DeclareMathOperator{\GL}{\operatorname{GL}}
+\DeclareMathOperator{\supp}{\operatorname{supp}}
+\newcommand{\catname}[1]{{\normalfont\textsf{#1}}}
+\newcommand{\Set}{\catname{Set}}
+\newcommand{\VectR}{\catname{VectR}}
+\newcommand{\VectZ}{\catname{ModZ}}
+\newcommand{\Ab}{\catname{Ab}}
+\newcommand{\FinAb}{\catname{FinAb}}
+
+% A command to add a blank page
+\newcommand\blankpage{%
+	\null
+	\newpage}
+
+% Header set up with fancyhdr
+\lhead[\nouppercase{\leftmark}]{\thepage} % EVEN, ODD
+\rhead[\thepage]{\nouppercase{\rightmark}} % EVEN, ODD
+\cfoot[]{}
+
+\pagestyle{fancy}
+\fancypagestyle{normal}{%
+	% Header set up with fancyhdr
+	\lhead[\nouppercase{\leftmark}]{\thepage} % EVEN, ODD
+	\rhead[\thepage]{\nouppercase{\rightmark}} % EVEN, ODD
+	\cfoot[]{}}
+\fancypagestyle{noheadername}{%
+	% Header set up with fancyhdr
+	\lhead[]{\thepage} % EVEN, ODD
+	\rhead[\thepage]{} % EVEN, ODD
+	\cfoot[]{}}
+
+% Declare first page in every chapter as 'fancy' pagestyle
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+	\thispagestyle{fancy}%
+	\global\@topnum\z@
+	\@afterindentfalse
+	\secdef\@chapter\@schapter}
+\makeatother
+
+% Custom environment for comments
+\newenvironment{comment}{\begin{framed} \footnotesize \textcolor{red}{\textbf{Comment.}}}{\end{framed} \normalsize}
+
+\begin{document}
+	
+	% ---------------------------------------------------------
+	% ---- Title page
+	% ---------------------------------------------------------
+	
+	\includepdf{cover/cover.pdf}
+	\pagestyle{empty}
+	\afterpage{\blankpage}
+	\pagenumbering{roman}
+	
+	% ---------------------------------------------------------
+	% ---- DOCUMENT INTRODUCTION
+	% ---------------------------------------------------------
+	
+	\section*{Abstract}
+	\pagestyle{normal}
+	
+	The abstract goes here.
+	It should contain information about why the work was done, which problem that was solved, what was done, what is new, and how it was done.
+	
+	
+	
+	
+	
+%	\begin{comment}
+%		From \cite{holst_scientific_nodate}
+%		- Why did we do it? justify your work, put it into a broader context.
+%		- what is the problem we are solving? (or which questions are answered)
+%		- What did we do? list main results here.  take-home message.
+%		- what is new? a brief comparison with state of the art.
+%		- How did we do it? tools used, methods /theoretical tools
+%	\end{comment}
+%	
+%	\begin{comment}
+%		Guidelines from Nature
+%		- 1-2 sentences with basic introduction to field, comprehensible to any scientist
+%		- 2-3 sentences of more detailed background, comprehensible to scientists in related discliplines
+%		- 1 sentence clearly stating the general problem
+%		- 1 sentence summarizing the main result (``here we show...'')
+%		- 2-3 sentences explaining main result in direct comparison to what was thought to be the case previously, or explain how main result adds to previous knowledge
+%		- 1-2 sentences putting the result in general context
+%		- 2-3 sentences to provide broader perspective
+%	\end{comment}
+%	
+%	\begin{comment}
+%		TODO: Write the abstract when everything else is finished.
+%		See other theses on how to do this, or try the following:
+%		(1) avoid notation if possible
+%		(2) put the subject in context
+%		(3) state results in non-technical language if possible
+%		(4) mention technique if there is a new one
+%		(5) never cite other papers in abstract.
+%		see \url{https://www.maa.org/sites/default/files/pdf/students/Writing%20Abstracts.pdf}
+%		or the book by Bodil
+%	\end{comment}
+	
+
+	
+	\vfill
+	\section*{Acknowledgements}
+	Write a acknowledgements.
+	\vfill
+
+	\setcounter{secnumdepth}{2}
+	\setcounter{tocdepth}{1}
+	\tableofcontents
+	
+	%\listoffigures
+	
+	%\listoftables
+	
+	\cleardoublepage
+	\chapter*{Notation}
+	\pagestyle{noheadername}
+	\vspace*{-3em}
+	%The following notation will be used throughout the thesis.
+	\small 
+	\begin{multicols}{2}
+		\begin{easylist}[itemize]
+			\ListProperties(Space*=\listSpace, Space=\listSpace, 
+			Style1**=\bfseries, Style2*=, Hang=false, Progressive=1ex)
+			
+			# Groups
+			## $\Z$ : Additive integers
+			## $\Z_n = \Z / n \Z$ : Additive integers mod $n$
+			## $\R$ : Additive reals
+			## $T = \R / \Z$ : Additive reals mod $1$
+			## $\T$ : Complex numbers $z$ with $\abs{z} = 1$
+			## $GL(n, \Z)$ : Invertible matrices over $\Z$
+
+			# Objects
+			## $G, H$ : Abelian groups
+			## $U, V$ : Unimodular matrices
+			## $I_n$ : Identity matrix of size $n$
+			
+			# Binary operators
+			%## $\innerprod{\cdot}{\cdot}$ : Inner product
+			## $+$ : Addition
+			## $\conv$ : Convolution
+			## $\oplus$ : Direct sum
+			
+			# Relations
+			## $\cong$ : Isomorphic
+			## $>$ : Greater than
+			## $\geq$ : Greater than or equal to
+			
+
+				
+		\end{easylist}
+	\end{multicols}
+	\normalsize
+	
+	\section*{Abbreviations}
+	\vspace*{-0.25em}
+		\begin{easylist}[itemize]
+			\ListProperties(Space*=\listSpace, 
+			Space=\listSpace, 
+			Style1**=\bfseries, 
+			Style2*=, 
+			Hang=false, 
+			Progressive=1ex)
+			## ML - Maximum likelihood
+			## MAP - Maximum a posteriori
+		\end{easylist}
+
+
+	\cleardoublepage
+	
+	% ---------------------------------------------------------
+	% ---- MAIN PART OF DOCUMENT
+	% ---------------------------------------------------------
+	
+	\pagenumbering{arabic}
+	\pagestyle{fancy}
+	
+	%\chapter{Notes}
+	%\input{chapters/0_notes}
+	
+	\pagestyle{normal}
+	\chapter{Introduction}
+	\input{chapters/1_introduction}
+
+	\chapter{Basic \LaTeX{}}
+	\input{chapters/2_basic_latex}
+	
+	\chapter{Some more \LaTeX{}}
+	\input{chapters/3_some_more_latex}
+	
+	% ---------------------------------------------------------
+	% ---- INDEX
+	% ---------------------------------------------------------
+	
+	%\printindex
+	
+	% ---------------------------------------------------------
+	% ---- BIBLIOGRAPHY
+	% ---------------------------------------------------------
+	
+	\bibliographystyle{apalike}%alpha, apalike is also good
+	\bibliography{thesis_bibliography}
+	
+	% ---------------------------------------------------------
+	% ---- APPENDICES
+	% ---------------------------------------------------------
+	
+	\begin{appendices}
+		\chapter{Example code}
+		\input{chapters/appendix_A}
+
+	\end{appendices}
+
+\end{document}
