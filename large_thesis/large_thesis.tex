@@ -38,13 +38,12 @@
 \usepackage{framed}						% To frame comments
 \usepackage{multirow}					% For multiple rows in tables
 \usepackage{afterpage}					% To insert blank pages
-\usepackage{blindtext}
+\usepackage{blindtext}					% To insert some blind text
 
 % -------------------------------------------------------------
 % ---- PACKAGE SET UP
 % -------------------------------------------------------------
 
-%\usepackage[T1]{fontenc}				% Different font if wanted
 \graphicspath{{figs/}}					% Path to graphics
 \pagestyle{fancy}						% Set page headers to fancy
 
@@ -112,30 +111,14 @@
 \newcommand{\abs}[1]{\left\lvert#1\right\rvert}
 \newcommand*\conj[1]{\overline{#1}}
 \DeclarePairedDelimiterX{\innerprod}[2]{\langle}{\rangle}{#1, #2}
-\DeclareMathOperator{\coker}{coker}
-\DeclareMathOperator{\im}{im}
-\DeclareMathOperator{\coim}{coim}
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\C}{\mathbb{C}}
 \DeclareMathOperator{\R}{\mathbb{R}}
-\DeclareMathOperator{\Q}{\mathbb{Q}}
 \DeclareMathOperator{\Z}{\mathbb{Z}}
-\DeclareMathOperator{\N}{\mathbb{N}}
-\DeclareMathOperator{\T}{\mathbb{T}}
-\DeclareMathOperator{\F}{\mathcal{F}}
-\DeclareMathOperator{\BO}{\mathcal{O}}
 \DeclareMathOperator{\conv}{\ast}
-\DeclareMathOperator{\argmin}{\operatorname{argmin}}
-\DeclareMathOperator{\rank}{\operatorname{rank}}
 \DeclareMathOperator{\GL}{\operatorname{GL}}
-\DeclareMathOperator{\supp}{\operatorname{supp}}
-\newcommand{\catname}[1]{{\normalfont\textsf{#1}}}
-\newcommand{\Set}{\catname{Set}}
-\newcommand{\VectR}{\catname{VectR}}
-\newcommand{\VectZ}{\catname{ModZ}}
-\newcommand{\Ab}{\catname{Ab}}
-\newcommand{\FinAb}{\catname{FinAb}}
+
 
 % A command to add a blank page
 \newcommand\blankpage{%
@@ -192,6 +175,14 @@
 	The abstract goes here.
 	It should contain information about why the work was done, which problem that was solved, what was done, what is new, and how it was done.
 	
+	If you are curious about how to write mathematics, perhaps this is of help.
+	
+	\begin{easylist}[itemize]
+		\ListProperties(Space=\listSpace, Space*=\listSpace)
+		# \url{http://web.cs.ucdavis.edu/~amenta/w10/writingman.pdf}
+		# \url{https://www.math.uh.edu/~tomforde/Books/Halmos-How-To-Write.pdf}
+	\end{easylist}
+	
 	
 	
 	
@@ -232,7 +223,7 @@
 	
 	\vfill
 	\section*{Acknowledgements}
-	Write a acknowledgements.
+	Write acknowledgements here.
 	\vfill
 
 	\setcounter{secnumdepth}{2}
@@ -259,7 +250,6 @@
 			## $\Z_n = \Z / n \Z$ : Additive integers mod $n$
 			## $\R$ : Additive reals
 			## $T = \R / \Z$ : Additive reals mod $1$
-			## $\T$ : Complex numbers $z$ with $\abs{z} = 1$
 			## $GL(n, \Z)$ : Invertible matrices over $\Z$
 
 			# Objects
