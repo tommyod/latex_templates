@@ -1,0 +1,170 @@
+% Title:
+% 	ARTICLE PLUS
+% ----------------------
+% Description:
+% 	A template for scientific reports/articles.
+%	Most necessary packages are imported,
+%	so this should be a good starting point.
+%
+% Creator: Tommy O.
+
+% -----------------------------------------------
+% Package imports
+% -----------------------------------------------
+\documentclass[12pt, a4paper, twoside]{article}% 'twocolumn' 
+\usepackage[utf8]{inputenc}% Allow input to be UTF-8
+\usepackage[norsk]{babel}% Alternative: 'norsk'
+\usepackage{graphicx}% For importing graphics
+\usepackage{amsthm, amsfonts, amssymb}% All the AMS packages
+\usepackage{mathtools}% Fixes a few AMS bugs
+\usepackage[expansion=false]{microtype}% Fixes to make typography better
+\usepackage{hyperref}% For \href{URL}{text}
+\usepackage{fancyhdr}% For fancy headers
+\usepackage[sharp]{easylist}% Easy nested lists
+\usepackage{parskip}% Web-like paragraphs
+\usepackage{multicol}% For multiple columns
+\usepackage[linesnumbered,ruled]{algorithm2e}% For algorithms
+\usepackage{tikz-cd}% For diagrams
+\usepackage{listings}% To include source-code
+\usepackage{booktabs}% Professional tables
+\usepackage{txfonts}% Font which looks less 'academic'
+%\usepackage[sc]{mathpazo}% A nice font, alternative to CM
+%\usepackage[headings]{fullpage}% Make margins smaller
+\usepackage[a4paper, margin = 3.175cm, includehead, includefoot]{geometry}% May be used to set margins
+
+\usepackage{blindtext}% For dummy text
+% -----------------------------------------------
+% Package setup
+% -----------------------------------------------
+
+% Setup for the fancyhdr package
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\rhead[]{\nouppercase{\leftmark}}
+\lhead[\nouppercase{\leftmark}]{}
+\chead[]{}
+\rfoot[]{\mytitle \hspace{1em} \thepage}
+\lfoot[\thepage \hspace{1em} \mytitle]{}
+\cfoot[]{}
+
+% Section numbers in equations
+\numberwithin{equation}{section} 
+
+% -----------------------------------------------
+% Misc settings
+% -----------------------------------------------
+
+% Spacing between easylist items
+\newcommand{\listSpace}{-0.25em}
+
+% If 'twocolumn', set the spacing as such
+\setlength{\columnsep}{1cm}
+
+% -----------------------------------------------
+% Document variables
+% -----------------------------------------------
+
+\def\mytitle{A serious corporate report}
+\title{\mytitle}
+\author{Tommy O.}
+
+% -----------------------------------------------
+% Document start
+% -----------------------------------------------
+
+\begin{document}
+\maketitle
+\pagestyle{fancy}
+\begin{abstract}
+\noindent \blindtext
+\end{abstract}
+\tableofcontents
+
+% -----------------------------------------------
+% Document content start
+% -----------------------------------------------
+
+\section{Intorduction}
+\blindtext
+
+\section{Important equations}
+\blindtext
+
+\begin{equation}
+	\frac{1}{\Gamma(k) \theta^k} \int_0^\nu x^{k - 1} e^{-x/\theta} dx = \tfrac{1}{2}
+\end{equation}
+
+\blindtext
+
+\begin{align}
+\operatorname{H}(X) & = \operatorname{E}[-\ln(p(X))] \\
+& = \operatorname{E}[-\alpha \ln(\beta) + \ln(\Gamma(\alpha)) - (\alpha-1)\ln(X) + \beta X] \\
+& = \alpha - \ln(\beta) + \ln(\Gamma(\alpha)) + (1-\alpha)\psi(\alpha).
+\end{align}
+
+\subsection{A table}
+\blindtext
+
+\begin{table}[ht!]
+	\centering
+	\caption{This table shows some data}
+	\begin{tabular}{llr}  
+		\toprule
+		\multicolumn{2}{c}{Item} \\
+		\cmidrule(r){1-2}
+		Animal    & Description & Price (\$) \\
+		\midrule
+		Gnat      & per gram    & 13.65      \\
+		&    each     & 0.01       \\
+		Gnu       & stuffed     & 92.50      \\
+		Emu       & stuffed     & 33.33      \\
+		Armadillo & frozen      & 8.99       \\
+		\bottomrule
+	\end{tabular}
+	
+	\label{tab:myfirsttable}
+\end{table}
+\blindtext
+
+\subsection{Sub section here}
+\blindtext
+
+
+Here is a list:
+\begin{easylist}[itemize]
+	\ListProperties(Space=\listSpace, Space*=\listSpace)
+	# But if the rebellion is to be successful.
+	# not to  between two, it is necessary.
+	# think that there is no.
+	# When a rational conviction has.
+\end{easylist}
+
+
+Another list:
+\begin{easylist}[enumerate]
+	\ListProperties(Space=\listSpace, Space*=\listSpace)
+	# think that there is no.
+	# When a rational conviction has.
+	# in oneself whatever.
+\end{easylist}
+
+\begin{equation}
+	T = \frac{1}{2}m v^2
+\end{equation}
+
+A .bib file will contain the bibliographic information of our document.
+
+A .bib file will contain the bibliographic information of our document. I will only give a simple example, since there are many tools to generate the entries automatically.
+
+A .bib file will contain the bibliographic information of our document. I will only give a simple example, since there are many tools to generate the entries automatically. I will not explain the structure of the file itself. Oh well.
+
+% -----------------------------------------------
+% ---- BIBLIOGRAPHY
+% -----------------------------------------------
+
+\bibliographystyle{apalike} % 'alpha' is also good
+%\bibliography{bibliography} % Reference to 'bibliography.bib'
+\end{document}
+
+
+\grid
