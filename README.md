@@ -24,7 +24,7 @@ Here's a list of resources. [Wikibooks](https://en.wikibooks.org/wiki/LaTeX) is 
 * [pdf] [Introduction to LaTeX](http://web.mit.edu/rsi/www/pdfs/new-latex.pdf)
 * [pdf] [Introduction to LaTeX](https://www.harding.edu/lmurray/latex_files/intro_to_latex/document.pdf)
 * [pdf] [An introduction to LaTeX](https://www.cs.hioa.no/~simenhag/files/LatexPresentasion.pdf)
-* [pdf] [Reference Sheet](ftp://ftp.dante.de/tex-archive/info/latex-refsheet/LaTeX_RefSheet.pdf)
+* [pdf] [Reference Sheet](http://ftp.dante.de/tex-archive/info/latex-refsheet/LaTeX_RefSheet.pdf)
 
 ## Useful LaTeX packages
 
