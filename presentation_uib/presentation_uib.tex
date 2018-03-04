@@ -23,9 +23,9 @@
 \date{\today}
 \author{Tommy O.}
 
-% ----------------------
+% -------------------------------------------------------------------------
 % Package imports
-% ----------------------
+% -------------------------------------------------------------------------
 \usepackage{etoolbox}
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -43,7 +43,6 @@
 
 
 % Set up colors to be used
-
 \definecolor{purered}{RGB}{204,0,0}
 \definecolor{titlered}{RGB}{229,78,71}
 \definecolor{bggray}{RGB}{242,242,242}
@@ -91,10 +90,10 @@
 
 % Theorems, equations, definitions setup
 \theoremstyle{plain}
-% ----------------------
-% Document start
-% ----------------------
 
+% -------------------------------------------------------------------------
+% Document start
+% -------------------------------------------------------------------------
 \begin{document}
 \maketitle
 \addtobeamertemplate{frametitle}{}{%
@@ -106,6 +105,9 @@
 	\tableofcontents
 \end{frame}
 
+
+% -------------------------------------------------------------------------
+\section{First section}
 \begin{frame}[fragile]{A slide with bullet points}
 	\begin{easylist}[itemize]
 		\ListProperties(Space=\listSpace, Space*=\listSpace)
@@ -144,7 +146,8 @@ Here's the proof.
 \end{columns}
 \end{frame}
 
-
+% -------------------------------------------------------------------------
+\section{Second section}
 \begin{frame}[fragile]{A slide with blocks}
 	\begin{block}{title of the bloc}
 	bloc text
@@ -155,8 +158,6 @@ Here's the proof.
 	\end{exampleblock}
 \end{frame}
 
-
-
 \begin{frame}[fragile]{A slide using pause}
 	\begin{easylist}[itemize]
 		\ListProperties(Space=\listSpace, Space*=\listSpace)
@@ -165,6 +166,5 @@ Here's the proof.
 		# Solve equations, factor group homomorphisms
 	\end{easylist}
 \end{frame}
-
 
 \end{document}
