@@ -109,20 +109,6 @@
 	\end{equation*}
 \end{solution}
 
-\part[1] Deriver funksjonen $g(x) = \frac{e^x}{x}$
-\begin{solution}
-	Skriv funksjonen som faktorer, slik at vi får $g(x) = \frac{e^x}{x} = e^x x^{-1}$.
-	Bruk deretter produktregelen $(uv) = u'v + uv'$, med $u = e^x$ og $v = x^{-1}$.
-	Vi får denne utregningen:
-	\begin{align*}
-	g'(x) &= \left( e^x \right)' x^{-1} + e^x \left( x^{-1} \right)' \\
-	&= e^x x^{-1} + e^x (-1) x^{-2} \\
-	&= \frac{e^x}{x} - \frac{e^x}{x^2} \\
-	&= \frac{xe^x}{x^2} - \frac{e^x}{x^2} \\
-	&= \answer{\frac{e^x(x-1)}{x^2}}
-	\end{align*}
-\end{solution}
-
 \part[1] Deriver funksjonen $h(x) = e^{-x} \ln \left(x^2\right)$
 \begin{solution}
 	Vi må bruke kjernereglen og produktregelen. La $u = e^{-x}$ og $v = \ln \left(x^2\right)$, vi regner ut de deriverte
@@ -176,9 +162,6 @@ bør produsere flere eller færre enn 60 enheter per dag?
 	Overskuddet er størst når produksjonsmengden \answer{$x$ er lik $91$}
 \end{solution}
 \end{parts}
-
-
-
 \end{questions}
 
 %\hrule
@@ -186,4 +169,3 @@ bør produsere flere eller færre enn 60 enheter per dag?
 %Ikke skriv noe her. \par \noindent
 %\gradetable[h][questions]	
 \end{document}
-	

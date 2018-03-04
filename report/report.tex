@@ -1,16 +1,14 @@
 % Title:
-% 	ARTICLE PLUS
+% 	REPORT
 % ----------------------
 % Description:
-% 	A template for scientific reports/articles.
-%	Most necessary packages are imported,
-%	so this should be a good starting point.
+%   A non-academic looking report.
 %
 % Creator: Tommy O.
 
-% -----------------------------------------------
+% -------------------------------------------------------------------------
 % Package imports
-% -----------------------------------------------
+% -------------------------------------------------------------------------
 \documentclass[12pt, a4paper, twoside]{article}% 'twocolumn' 
 \usepackage[utf8]{inputenc}% Allow input to be UTF-8
 \usepackage[norsk]{babel}% Alternative: 'norsk'
@@ -33,9 +31,9 @@
 \usepackage[a4paper, margin = 3.175cm, includehead, includefoot]{geometry}% May be used to set margins
 
 \usepackage{blindtext}% For dummy text
-% -----------------------------------------------
+% -------------------------------------------------------------------------
 % Package setup
-% -----------------------------------------------
+% -------------------------------------------------------------------------
 
 % Setup for the fancyhdr package
 \renewcommand{\headrulewidth}{0pt}
@@ -50,9 +48,9 @@
 % Section numbers in equations
 \numberwithin{equation}{section} 
 
-% -----------------------------------------------
+% -------------------------------------------------------------------------
 % Misc settings
-% -----------------------------------------------
+% -------------------------------------------------------------------------
 
 % Spacing between easylist items
 \newcommand{\listSpace}{-0.25em}
@@ -60,18 +58,17 @@
 % If 'twocolumn', set the spacing as such
 \setlength{\columnsep}{1cm}
 
-% -----------------------------------------------
+% -------------------------------------------------------------------------
 % Document variables
-% -----------------------------------------------
+% -------------------------------------------------------------------------
 
 \def\mytitle{A serious corporate report}
 \title{\mytitle}
 \author{Tommy O.}
 
-% -----------------------------------------------
+% -------------------------------------------------------------------------
 % Document start
-% -----------------------------------------------
-
+% -------------------------------------------------------------------------
 \begin{document}
 \maketitle
 \pagestyle{fancy}
@@ -80,11 +77,11 @@
 \end{abstract}
 \tableofcontents
 
-% -----------------------------------------------
+% -------------------------------------------------------------------------
 % Document content start
-% -----------------------------------------------
+% -------------------------------------------------------------------------
 
-\section{Intorduction}
+\section{Introduction}
 \blindtext
 
 \section{Important equations}
@@ -129,7 +126,6 @@
 \subsection{Sub section here}
 \blindtext
 
-
 Here is a list:
 \begin{easylist}[itemize]
 	\ListProperties(Space=\listSpace, Space*=\listSpace)
@@ -138,7 +134,6 @@ Here is a list:
 	# think that there is no.
 	# When a rational conviction has.
 \end{easylist}
-
 
 Another list:
 \begin{easylist}[enumerate]
@@ -158,13 +153,10 @@ A .bib file will contain the bibliographic information of our document. I will o
 
 A .bib file will contain the bibliographic information of our document. I will only give a simple example, since there are many tools to generate the entries automatically. I will not explain the structure of the file itself. Oh well.
 
-% -----------------------------------------------
-% ---- BIBLIOGRAPHY
-% -----------------------------------------------
 
+% -------------------------------------------------------------------------
+% ---- BIBLIOGRAPHY
+% -------------------------------------------------------------------------
 \bibliographystyle{apalike} % 'alpha' is also good
 %\bibliography{bibliography} % Reference to 'bibliography.bib'
 \end{document}
-
-
-\grid
