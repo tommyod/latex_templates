@@ -10,7 +10,7 @@
 % ----------------------
 % Setup
 % ----------------------
-\documentclass[12pt, aspectratio=149]{beamer}
+\documentclass[12pt, aspectratio=149, t]{beamer}
 % Options for aspectratio: 1610, 149, 54, 43 and 32, 169
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -41,6 +41,10 @@
 \usepackage{multicol}
 \usepackage{tikz-cd}
 
+% Remove navigation symbols and add frame number
+\beamertemplatenavigationsymbolsempty
+\setbeamerfont{page number in head/foot}{size=\scriptsize}
+\setbeamertemplate{footline}[frame number]
 
 % Set up colors to be used
 \definecolor{purered}{RGB}{204,0,0}
