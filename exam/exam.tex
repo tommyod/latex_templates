@@ -17,11 +17,8 @@
 \usepackage[utf8]{inputenc}		% Allow input to be UTF-8
 \usepackage[norsk]{babel}		% Alternative: 'norsk'
 \usepackage{graphicx}			% For importing graphics
-\usepackage{amsmath}			% AMS mathematics package
-\usepackage{amsthm}				% AMS mathematics package
-\usepackage{amsfonts}			% AMS mathematics package
-\usepackage{amssymb}			% AMS mathematics package
-\usepackage{mathtools}			% Fixes a few AMS bugs
+\usepackage{amsthm, amsfonts, amssymb, amssymb} % All the AMS packages
+\usepackage{mathtools} % Fixes a few AMS bugs
 \usepackage{hyperref}			% For \href{URL}{text}
 \usepackage{enumitem}			% For enumeration
 \usepackage{color} 				% Defines a new color
@@ -30,7 +27,7 @@
 \usepackage{parskip}					% Paragraph space
 \usepackage[sharp]{easylist}			% For easy lists
 \usepackage[expansion=false]{microtype} % Fixes to make typography better
-\usepackage[margin = 2.25cm, includehead, includefoot]{geometry}
+\usepackage[margin=2.25cm, includehead, includefoot]{geometry}
 %\usepackage[sc]{mathpazo}				% A nice font, alternative to CM
 
 % ------------------------------------------------------------------
@@ -81,7 +78,7 @@
 	\enspace (\mysolname	 )
 	\fi
 	} \\
-\noindent {\mycreated \enspace  \myauthor} \vspace{1px}
+\noindent {\mycreated \enspace  \myauthor} \vspace{1em}
 \hrule \hrule
 \subsection*{Instruks}
 \begin{center}

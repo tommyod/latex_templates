@@ -1,6 +1,8 @@
 # latex_templates
 
-A collection of useful LaTeX templates.
+A collection of useful LaTeX templates. Pull requests are welcome.
+
+![](latex_templates_showcase.png)
 
 ## Templates
 

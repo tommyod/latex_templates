@@ -11,37 +11,53 @@
 % -----------------------------------------------
 % Package imports
 % -----------------------------------------------
-\documentclass[12pt, a4paper]{article}% 'twoside' for printing
-\usepackage[utf8]{inputenc}% Allow input to be UTF-8
-\usepackage[english]{babel}% Alternative: 'norsk'
-\usepackage{graphicx}% For importing graphics
-\usepackage{amsthm, amsfonts, amssymb}% All the AMS packages
-\usepackage{mathtools}% Fixes a few AMS bugs
+\documentclass[12pt, a4paper]{article} % 'twoside' for printing
+\usepackage[utf8]{inputenc} % Allow input to be UTF-8
+\usepackage[english]{babel} % Alternative: 'norsk' for norwegian
+\usepackage{graphicx} % For importing graphics
+\usepackage{amsthm, amsfonts, amssymb, amssymb} % All the AMS packages
+\usepackage{mathtools} % Fixes a few AMS bugs
+\usepackage{etoolbox} % Used to change mark at the end of thms
 \usepackage[expansion=false]{microtype}% Fixes to make typography better
-\usepackage[textsize=footnotesize]{todonotes}% Adds \todo{text} comments
-\setlength{\marginparwidth}{2cm}% More space for the todo notes
-\usepackage{hyperref}% For \href{URL}{text}
-\usepackage{fancyhdr}% For fancy headers
-\usepackage[sharp]{easylist}% Easy nested lists
-\usepackage{parskip}% Web-like paragraphs
-\usepackage{multicol}% For multiple columns
-\usepackage[linesnumbered,ruled]{algorithm2e}% For algorithms
-\usepackage{tikz-cd}% For diagrams
-\usepackage{listings}% To include source-code
-\usepackage[sc]{mathpazo}% A nice font, alternative to CM
-\usepackage[headings]{fullpage}% Make margins smaller
-%\usepackage{geometry}% May be used to set margins
+\usepackage[textsize=footnotesize]{todonotes} % Adds \todo{text} comments
+\setlength{\marginparwidth}{2cm} % More space for the todo notes
+\usepackage{hyperref} % For \href{URL}{text}
+\usepackage{fancyhdr} % For fancy headers
+\usepackage{cleveref} % Clever referencing using \cref
+\usepackage[sharp]{easylist} % Easy nested lists using # (sharp)
+\usepackage{parskip} % Web-like paragraphs, with spacing
+\usepackage{multicol} % For multiple columns
+\usepackage[linesnumbered,ruled]{algorithm2e} % For algorithms
+\usepackage{tikz-cd} % For commutative diagrams
+\usepackage{listings} % To include source-code
+\usepackage{blindtext} % To generate lorem ipsum text
+\usepackage[sc]{mathpazo} % A nice font, alternative to CM (default)
+\usepackage[headings]{fullpage} % Make margins smaller
+% \usepackage{geometry} % May be used to set margins, alternative to fullpage
 
 % -----------------------------------------------
 % Package setup
 % -----------------------------------------------
 
+% Add spacing to theorems and related environments
+\newtheoremstyle{plainspaced}
+{1em} % Space above
+{1em} % Space below
+{} % Body font
+{} % Indent amount
+{\bfseries} % Theorem head font
+{.} % Punctuation after theorem head
+{.5em} % Space after theorem head
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}} % Theorem head spec (can be left 
+%empty, meaning `normal')
+
 % Theorems, definition and examples
-\theoremstyle{plain} 
+\theoremstyle{plainspaced} 
 \newtheorem{theorem}{Theorem} 
-\theoremstyle{definition} 
-\newtheorem{definition}{Definition} 
+\newtheorem{definition}{Definition}
+\AtEndEnvironment{definition}{\null\hfill $\lrcorner$}
 \newtheorem{example}{Example}
+\AtEndEnvironment{example}{\null\hfill $\lrcorner$}
 
 % Setup for the fancyhdr package
 \rhead{\thepage}
@@ -56,6 +72,10 @@
 
 % Spacing between easylist items
 \newcommand{\listSpace}{-0.25em}
+
+% Some math operators
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
 
 % Make theorem and definition titles bold
 \makeatletter
@@ -84,7 +104,9 @@
 \maketitle
 \pagestyle{fancy}
 \begin{abstract}
-Lorem ipsum ...
+\todo{Write this.}
+\blindmathtrue 
+\blindtext[1]
 \end{abstract}
 \tableofcontents
 
@@ -92,21 +114,38 @@ Lorem ipsum ...
 % Document content start
 % -----------------------------------------------
 
-\section{SECTION}
-Hello world. We start with a definition:
+\section{A first section}
+\blindmathtrue 
+\blindtext[1]
 \begin{definition}[Group]
+	\label{def:group}
 	A group is a set $S$ along with an operation $\circ$
 	with four axioms: identity, associativity, closure and inverse.
+	\todo{Add citation.}
 \end{definition}
+There are two ways to cite the definition above.
+Look at definition \ref{def:group}, or at \cref{def:group}.
+
 \begin{theorem}[Pytagorean theorem]
 	\label{thm:pyta}
 	For a triangle with sides $a$, $b$ and $c$,
 	it is true that $a^2 + b^2 = c^2$.
 \end{theorem}
 \begin{proof}
-	Here comes the proof...
+	Consider
+	\begin{equation}
+	\label{eqn:bayes_theorem}
+		f_Y(y) = \int_{-\infty}^\infty f_Y(y\mid X=\xi )\,f_X(\xi)\,d\xi .
+	\end{equation}
 \end{proof}
-Look closely at theorem \ref{thm:pyta}, in other words theorem \eqref{thm:pyta}.
+Look closely at \cref{thm:pyta}, in other words 
+\cref{eqn:bayes_theorem}.
+
+\blindmathtrue 
+\blindtext[1]
+
+
+\section{Lists}
 Here is a list:
 \begin{easylist}[itemize]
 	\ListProperties(Space=\listSpace, Space*=\listSpace)
@@ -116,7 +155,6 @@ Here is a list:
 	# When a rational conviction has.
 \end{easylist}
 
-\pagebreak
 Another list:
 \begin{easylist}[enumerate]
 	\ListProperties(Space=\listSpace, Space*=\listSpace)
@@ -128,6 +166,21 @@ Another list:
 \begin{equation}
 	T = \frac{1}{2}m v^2
 \end{equation}
+
+\section{Diagrams}
+Consider the following diagram, which shows the relationship between grad, curl 
+and div
+\begin{equation*}
+\begin{tikzcd}
+f \arrow{r}{\text{grad}} \arrow[swap, bend right=30]{rr}{0} & \vec{F} 
+\arrow[bend left=40]{rr}{0}
+\arrow{r}{\text{curl}}  &  \vec{F} 
+\arrow{r}{\text{div}}  & \mathbb{R}  .
+\end{tikzcd}
+\end{equation*}
+
+
+\section{The bibliography}
 
 A .bib file will contain the bibliographic information of our document.
 
